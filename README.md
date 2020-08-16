@@ -18,7 +18,6 @@
 |------|----|-------|
 |tweetname|string|null: false|
 |text|text|null: false|
-|tag|text||
 |image|text|null: false|
 |alc|integer||
 |user_id|integer|null: false, foreign_key: true|
@@ -26,6 +25,8 @@
 ### Association
 - belongs_to :user
 - has_many :reviews
+- has_many :tweet_tags, dependent: :destroy
+- has_many :tags, through: :tweet_tags
 
 ## reviewsテーブル
 
@@ -38,3 +39,24 @@
 ### Association
 - belongs_to :tweet
 - belongs_to :user
+
+## tagsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string||
+
+### Association
+- has_many :tweet_tags, dependent: :destroy
+- has_many :tweets, through: :tweet_tags
+
+## tweet_tagsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|tweet_id|integer|null: false, foreign_key: true|
+|tag_id|integer|null: false, foreign_key: true|
+
+### Association
+- belongs_to :tweet
+- belongs_to :tag
