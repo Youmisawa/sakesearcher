@@ -16,10 +16,11 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|text|null: false|
+|tweetname|string|null: false|
 |text|text|null: false|
 |tag|text||
-|image|string|null: false|
+|image|text|null: false|
+|alc|integer||
 |user_id|integer|null: false, foreign_key: true|
 
 ### Association

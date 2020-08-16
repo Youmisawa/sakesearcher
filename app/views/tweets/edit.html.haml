@@ -1,0 +1,10 @@
+.Newtweet
+  .Newtweet__tweet-area
+    = form_with(model: @tweet, local: true) do |f|
+      .Newtweet__tweet-area__tweet-post 編集する
+      = f.text_field :tweetname, placeholder: "  Name of sake", class: "Newtweet__tweet-area__tweet-name"
+      = f.text_field :image, placeholder: "  Image Url", class: "Newtweet__tweet-area__tweet-image"
+      = f.text_area :text, placeholder: 'お酒の説明（精米歩合などもお書きください）&#13;&#10;例：精米歩合 : 60%'.html_safe, class: "Newtweet__tweet-area__tweet-text"
+      = f.text_area :alc, placeholder: "アルコール度数", class: "Newtweet__tweet-area__tweet-alc"
+      = f.text_area :tag, placeholder: "検索されそうなキーワード（例：甘口、酸味強い、冷酒、熱燗）", class: "Newtweet__tweet-area__tweet-tag"
+      = f.submit "SEND", class: "Newtweet__tweet-area__submit-btn"

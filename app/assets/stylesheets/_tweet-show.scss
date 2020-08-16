@@ -1,0 +1,127 @@
+.Content {
+  &__btn {
+    margin: 18px;
+    &__1, a {
+      background-color: #bce2e8;
+      border-radius: 10px;
+      padding: 5px;
+      margin-right: 8px;
+      color: whitesmoke;
+    }
+    &__2, a{
+      background-color: #bce2e8;
+      border-radius: 10px;
+      padding: 5px;
+      margin-right: 8px;
+      color: whitesmoke;
+    }
+    &__1, a:hover {
+      background-color: #00a3af	;
+      transition: all .35s ease-in-out .35s;
+    }
+    &__2, a:hover {
+      background-color: #00a3af	;
+      transition: all .35s ease-in-out .35s;
+    }
+  }
+
+  &__post-user {
+    padding: 30px;
+    position: relative;
+    height: 500px;
+    color: #2c4f54;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 3px;
+  }
+
+  &__tweetname{
+    font-size: 37px;
+    text-align: center;
+    margin-top: 30px;
+    border-bottom: dashed 1px #87CEFA;
+  }
+
+  &__text{
+    font-size: 16px;
+    border-bottom: dashed 1px #87CEFA;
+    margin-top: 12px;
+    padding-bottom: 10px;
+  }
+
+  &__alc{
+    font-size: 16px;
+    margin: 15px 0;
+  }
+
+  &__tag{
+    font-size: 16px;
+    margin: 15px 0 40px;
+  }
+
+  &__a {
+    text-align: center;
+    margin-bottom: 80px;
+    background-color: #bce2e8;
+    border-radius: 10px;
+    padding: 5px;
+    margin-right: 8px;
+    color: whitesmoke;
+    width: 150px;
+    margin-left: 258px;
+  }
+
+  &__a :hover {
+    color: #00a3af	;
+    transition: all .35s ease-in-out .35s;
+  }
+
+  &__reviews{
+    margin-bottom: 20px;
+
+    &__comment-write{
+      width: 530px;
+      border-radius: 10px;
+      padding: 5px;
+    }
+    
+    &__submit-btn{
+      display: block;
+      height: 45px;
+      width: 80px;
+      color: #c6e9f5;
+      background-color: #87CEFA;
+      border: 1px solid #D8D8D8;
+      border-radius: 15px;
+      margin-top: 15px;
+    }
+    
+    &__submit-btn:hover {
+      background-color: #78d3df;
+    }
+
+    &__no-rogin{
+      text-align: center;
+      font-size: 15px;
+      color: #165e83;
+    }
+
+    &__comments{
+      background-color: #fbfaf5;
+      border: 1px solid #D8D8D8;
+      margin-bottom: 30px;
+      border-radius: 15px;
+      &__1{
+        margin-bottom: 10px;
+        position: revert;
+        margin: 10px;
+      }
+    }
+
+    h4{
+      font-size: 20px;
+      color: #00bfff;
+      margin: 20px 0 20px;
+    }
+  }
+}

@@ -8,4 +8,16 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    %header.Header
+      .Header__bar
+        .Header__bar__grid
+          %a{href: "/"} SakeSearcher
+        .Header__bar__post
+          - if user_signed_in?
+            = link_to "My page", "/users/#{current_user.id}", class: "Header__bar__post__1"
+            = link_to "Log out", destroy_user_session_path, class: "Header__bar__post__1", method: :delete
+            = link_to "投稿する", new_tweet_path, class: "Header__bar__post__1"
+          - else
+            = link_to "Log in", new_user_session_path, class: "Header__bar__post__1"
+            = link_to "Sign up", new_user_registration_path, class: "Header__bar__post__1"
     = yield

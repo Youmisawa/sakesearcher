@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  background: lighten(#f0f4c3, 10%);
+}
+
+a {
+  text-decoration: none;
+  color: #00bfff;
+}
+.Header {
+  height: 90px;
+  background-color: #f0f8ff;
+  box-shadow: 0 -4px 20px rgba(black, .2);
+  &__bar {
+    display: flex;
+    justify-content: space-between;
+    height: 90px;
+    
+    &__grid {
+      height: 30px;
+      width: 150px;
+      font-size: 30px;
+      letter-spacing: .3em;
+      font-family: 'Playfair Display', serif;
+      margin: 20px 30px 20px;
+    }
+
+    &__post {
+      margin-top: 31px;
+      &__1{
+        padding: 20px 15px;
+        margin: 10px 15px;
+        overflow: hidden;
+        border-radius: 10px;
+        text-align: center;
+        font-family: 'Playfair Display', serif;
+      }
+
+      &__1:hover {
+      background-color: #b0e0e6;
+      transition: all .35s ease-in-out .35s;
+      }
+    }
+  }
+}

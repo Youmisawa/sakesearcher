@@ -1,0 +1,11 @@
+.Content
+  .Content__name
+    = @name
+    さんの投稿一覧
+  - @tweets.each do |tweet|
+    .Content__post{style: "background-image: url(#{tweet.image});"}
+      .Content__post__more
+        = link_to '詳細', tweet_path(tweet.id), class: 'Content__post__more__list',method: :get
+        = link_to '削除', tweet_path(tweet.id), class: 'Content__post__more__list', method: :delete
+        = link_to '編集', edit_tweet_path(tweet.id), class: 'Content__post__more__list',method: :get
+      %p= tweet.tweetname
