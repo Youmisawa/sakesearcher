@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_14_141224) do
+ActiveRecord::Schema.define(version: 2020_08_17_023143) do
 
   create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "tweet_id"
@@ -22,15 +22,30 @@ ActiveRecord::Schema.define(version: 2020_08_14_141224) do
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
+  create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tweet_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "tweet_id", null: false
+    t.bigint "tag_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tag_id"], name: "index_tweet_tags_on_tag_id"
+    t.index ["tweet_id"], name: "index_tweet_tags_on_tweet_id"
+  end
+
   create_table "tweets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "text", null: false
-    t.text "tag"
     t.text "image", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "tweetname"
     t.bigint "user_id", null: false
     t.integer "alc"
+    t.text "url"
     t.index ["user_id"], name: "index_tweets_on_user_id"
   end
 
@@ -50,4 +65,6 @@ ActiveRecord::Schema.define(version: 2020_08_14_141224) do
 
   add_foreign_key "reviews", "tweets"
   add_foreign_key "reviews", "users"
+  add_foreign_key "tweet_tags", "tags"
+  add_foreign_key "tweet_tags", "tweets"
 end

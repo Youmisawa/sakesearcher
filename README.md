@@ -19,6 +19,7 @@
 |tweetname|string|null: false|
 |text|text|null: false|
 |image|text|null: false|
+|url|text||
 |alc|integer||
 |user_id|integer|null: false, foreign_key: true|
 

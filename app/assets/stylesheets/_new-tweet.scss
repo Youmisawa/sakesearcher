@@ -37,11 +37,19 @@
     }
     &__tweet-image{
       display: block;
-      height: 45px;
-      width: 600px;
-      margin-bottom: 20px;
       border: 1px solid #D8D8D8;
       border-radius: 5px;
+      padding: 12px 0 12px 35px;
+    }
+
+    h1{
+      font-size: 20px;
+      color: #708090;
+    }
+    h2{
+      margin-bottom: 15px;
+      font-size: 14px;
+      color: #708090;
     }
 
     &__tweet-text{
@@ -87,6 +95,25 @@
 
     &__submit-btn:hover {
       background-color: #b0e0e6;
+    }
+
+    &__check-box{
+      font-size: 20px;
+      color: #708090;
+      margin: 5px;
+    }
+
+    &__check-boxs{
+      width: 600px;
+      margin: 5px 0 20px;
+    }
+
+    &__tweet-url{
+      width: 236px;
+      margin-bottom: 10px;
+      padding: 3px;
+      border-radius: 5px;
+      border: 1px solid #D8D8D8;
     }
   }
 }

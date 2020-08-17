@@ -4,6 +4,7 @@ class TweetsController < ApplicationController
 
   def index
     @tweets = Tweet.includes(:user).order("created_at DESC")
+    @tweets = params[:tag_id].present? ? Tag.find(params[:tag_id]).tweets : Tweet.all
   end
 
   def new
@@ -38,7 +39,7 @@ class TweetsController < ApplicationController
 
   private
   def tweet_params
-    params.require(:tweet).permit(:tweetname, :image, :text, :alc, :tag).merge(user_id: current_user.id)
+    params.require(:tweet).permit(:tweetname, :image, :text, :alc, :url, tag_ids: []).merge(user_id: current_user.id)
   end
 
   def set_tweet

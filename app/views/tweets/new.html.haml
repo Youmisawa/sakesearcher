@@ -3,8 +3,18 @@
     = form_with(model: @tweet, local: true) do |f|
       .Newtweet__tweet-area__tweet-post 投稿する
       = f.text_field :tweetname, placeholder: "  Name of sake", class: "Newtweet__tweet-area__tweet-name"
-      = f.text_field :image, placeholder: "  Image Url", class: "Newtweet__tweet-area__tweet-image"
+      %h1 ~ Please select an image ~
+      = f.file_field :image, placeholder: "  Image Url", class: "Newtweet__tweet-area__tweet-image"
+      %h2 ※画像の大きさは500×500を推薦いたします
       = f.text_area :text, placeholder: 'お酒の説明（精米歩合などもお書きください）&#13;&#10;例：精米歩合 : 60%'.html_safe, class: "Newtweet__tweet-area__tweet-text"
       = f.text_area :alc, placeholder: "アルコール度数", class: "Newtweet__tweet-area__tweet-alc"
-      = f.text_area :tag, placeholder: "検索されそうなキーワード（例：甘口、酸味強い、冷酒、熱燗）", class: "Newtweet__tweet-area__tweet-tag"
+      = f.text_field :url, placeholder: "  蔵のURLなどをお貼り下さい", class: "Newtweet__tweet-area__tweet-url"
+      .Newtweet__tweet-area__check-box
+        ＝　Select tag　＝
+      .Newtweet__tweet-area__check-boxs
+        = f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag|
+          = tag.label do
+            = tag.check_box
+            = tag.text
+            %print 　   
       = f.submit "SEND", class: "Newtweet__tweet-area__submit-btn"

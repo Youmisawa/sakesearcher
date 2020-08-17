@@ -11,9 +11,14 @@
   .Content__alc
     アルコール度数（％）：
     = @tweet.alc
+  .Content__url
+    蔵のURL：
+    = @tweet.url
   .Content__tag
-    キーワード：
-    = @tweet.tag
+    Tag；
+    - @tweet.tags.each do |tag|
+      = tag.name
+      %print ,
   .Content__a
     %a.btn{href: "/"} 投稿一覧へ戻る
   .Content__reviews

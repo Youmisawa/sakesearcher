@@ -1,14 +1,23 @@
 .Search
   .Search__box
+    .Search__box__1
+      日本酒の名前やタグで気になるものを検索してみよう！
+    .Search__box__2
+      甘口や辛口、酸味強めや酸味弱めなどタグ検索してお酒を見つけよう！ログインするとコメントや投稿も可能に！
+      %br 画像下の「詳細」を押すとそのお酒の詳細ページにいけるよ！
   .Search__wave
   .Search__title
     sakesearch
   .Search__comment
     あなたに合った一杯を
     = form_with(url: search_tweets_path, local: true, method: :get, class: "Search__comment__search-form") do |form|
-      = form.text_field :keyword, placeholder: " Let's search", class: "Search__comment__search-input"
+      = form.text_field :keyword, placeholder: " Let's search by name!", class: "Search__comment__search-input"
       = form.submit "Search", class: "Search__comment__search-btn"
-
+    = form_tag tweets_path, method: :get, class: 'Search__comment__search-tag' do
+      = select_tag :tag_id,                                                       
+        options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]), 
+        { prompt: "Let's search by tag!",                                               
+          onchange: 'submit(this.form);'}                                                                         
 .Content
   - @tweets.each do |tweet|
     .Content__post{style: "background-image: url(#{tweet.image});"}
@@ -17,6 +26,11 @@
         - if user_signed_in? && current_user.id == tweet.user_id
           = link_to '削除', tweet_path(tweet.id), class: 'Content__post__more__list', method: :delete
           = link_to '編集', edit_tweet_path(tweet.id), class: 'Content__post__more__list',method: :get
+      .Content__post__tags
+        Tag；
+        - tweet.tags.each do |tag|
+          = tag.name
+          %print ,
       %p= tweet.tweetname
       %a{href: "/users/#{tweet.user.id}"}
         %span 
