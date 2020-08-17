@@ -6,7 +6,7 @@
       %h1 ~ Please select an image ~
       = f.file_field :image, placeholder: "  Image Url", class: "Newtweet__tweet-area__tweet-image"
       %h2 ※画像の大きさは500×500を推薦いたします
-      = f.text_area :text, placeholder: 'お酒の説明（精米歩合などもお書きください）&#13;&#10;例：精米歩合 : 60%'.html_safe, class: "Newtweet__tweet-area__tweet-text"
+      = f.text_area :text, placeholder: 'お酒の説明（精米歩合などもお書きください）&#13;&#10;例：精米歩合 : 60% &#13;&#10;引用元がある際は必ず記述をお願いいたします。'.html_safe, class: "Newtweet__tweet-area__tweet-text"
       = f.text_area :alc, placeholder: "アルコール度数", class: "Newtweet__tweet-area__tweet-alc"
       = f.text_field :url, placeholder: "  蔵のURLなどをお貼り下さい", class: "Newtweet__tweet-area__tweet-url"
       .Newtweet__tweet-area__check-box
