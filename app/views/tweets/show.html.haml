@@ -23,7 +23,7 @@
     %a.btn{href: "/"} 投稿一覧へ戻る
   .Content__reviews
     - if current_user
-      = form_with(model: [@tweet, @review], local: true) do |f|
+      = form_with(model: [@tweet, @review], local: true, id: "new_comment") do |f|
         = f.text_area :comment, placeholder: "   コメントする", class: "Content__reviews__comment-write"
         = f.submit "SEND", class: "Content__reviews__submit-btn"
     - else
@@ -32,7 +32,5 @@
     .Content__reviews__comments
       - @reviews.each do |review|
         %p.Content__reviews__comments__1
-          %strong
-            = link_to review.user.name, "/users/#{review.user_id}"
-            ;
-            = review.comment
+          = link_to review.user.name, "/users/#{review.user_id}"
+          = review.comment

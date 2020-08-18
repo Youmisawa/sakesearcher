@@ -1,7 +1,10 @@
 class ReviewsController < ApplicationController
   def create
-    review = Review.create(review_params)
-    redirect_to "/tweets/#{review.tweet.id}"
+    @review = Review.create(review_params)
+    respond_to do |format|
+      format.html { redirect_to tweet_path(params[:tweet_id]) }
+      format.json
+    end
   end
 
   private
