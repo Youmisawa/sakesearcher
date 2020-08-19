@@ -44,6 +44,9 @@
         - if user_signed_in? && current_user.id == tweet.user_id
           = link_to '削除', tweet_path(tweet.id), class: 'Content__post__more__list', method: :delete
           = link_to '編集', edit_tweet_path(tweet.id), class: 'Content__post__more__list',method: :get
+        .Content__post__more__like
+          %div{id: "like-btn-#{tweet.id}"}
+            = render 'likes/like', tweet: tweet
       .Content__post__tags
         Tag；
         - tweet.tags.each do |tag|

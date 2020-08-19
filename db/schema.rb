@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_17_023143) do
+ActiveRecord::Schema.define(version: 2020_08_19_080804) do
+
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "tweet_id"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tweet_id"], name: "index_likes_on_tweet_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
 
   create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "tweet_id"
@@ -46,6 +55,7 @@ ActiveRecord::Schema.define(version: 2020_08_17_023143) do
     t.bigint "user_id", null: false
     t.integer "alc"
     t.text "url"
+    t.index ["tweetname"], name: "index_tweets_on_tweetname", length: 32
     t.index ["user_id"], name: "index_tweets_on_user_id"
   end
 
@@ -63,6 +73,8 @@ ActiveRecord::Schema.define(version: 2020_08_17_023143) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "likes", "tweets"
+  add_foreign_key "likes", "users"
   add_foreign_key "reviews", "tweets"
   add_foreign_key "reviews", "users"
   add_foreign_key "tweet_tags", "tags"
