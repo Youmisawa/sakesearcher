@@ -9,7 +9,7 @@ class Tweet < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
-  def liked_by?(user)
+  def liked_by?(current_user)
     likes.where(user_id: user.id).exists?
   end
   

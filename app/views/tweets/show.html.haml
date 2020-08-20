@@ -1,36 +1,36 @@
-.Content
-  .Content__btn
+.Contents
+  .Contents__btn
     - if user_signed_in? && current_user.id == @tweet.user_id
-      = link_to '削除', tweet_path(@tweet.id), class: 'Content__btn__1', method: :delete
-      = link_to '編集', edit_tweet_path(@tweet.id), class: 'Content__btn__2',method: :get
-  .Content__post-user{style: "background-image: url(#{@tweet.image});"}
-  .Content__tweetname
+      = link_to '削除', tweet_path(@tweet.id), class: 'Contents__btn__1', method: :delete
+      = link_to '編集', edit_tweet_path(@tweet.id), class: 'Contents__btn__2',method: :get
+  .Contents__post-user{style: "background-image: url(#{@tweet.image});"}
+  .Contents__tweetname
     = @tweet.tweetname
-  .Content__text
+  .Contents__text{style: "white-space: pre-wrap;"}
     = @tweet.text
-  .Content__alc
+  .Contents__alc
     アルコール度数（％）：
     = @tweet.alc
-  .Content__url
+  .Contents__url
     蔵のURL：
     = @tweet.url
-  .Content__tag
+  .Contents__tag
     Tag；
     - @tweet.tags.each do |tag|
       = tag.name
       %print ,
-  .Content__a
+  .Contents__a
     %a.btn{href: "/"} 投稿一覧へ戻る
-  .Content__reviews
+  .Contents__reviews
     - if current_user
       = form_with(model: [@tweet, @review], local: true, id: "new_comment") do |f|
-        = f.text_area :comment, placeholder: "   コメントする", class: "Content__reviews__comment-write"
-        = f.submit "SEND", class: "Content__reviews__submit-btn"
+        = f.text_area :comment, placeholder: "   コメントする", class: "Contents__reviews__comment-write"
+        = f.submit "SEND", class: "Contents__reviews__submit-btn"
     - else
-      .Content__reviews__no-rogin === コメントの投稿には新規登録/ログインが必要です ===
+      .Contents__reviews__no-rogin === コメントの投稿には新規登録/ログインが必要です ===
     %h4 ＜コメント一覧＞
-    .Content__reviews__comments
+    .Contents__reviews__comments
       - @reviews.each do |review|
-        %p.Content__reviews__comments__1
+        %p.Contents__reviews__comments__1
           = link_to review.user.name, "/users/#{review.user_id}"
           = review.comment

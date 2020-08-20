@@ -12,7 +12,7 @@
     display: flex;
     justify-content: space-between;
 
-    &__1{
+    &__fwari{
       position: relative;
       padding: 15px 10px 10px 12px;
       background-color: #c1e0ff;
@@ -20,9 +20,12 @@
       width: 250px;
       margin-left: 67px;
       height: 78px;
-      margin-top: 20px;
+      margin-top: 30px;
       color: steelblue;
       margin-bottom: 250px;
+      animation:fwari ease-in-out 2s infinite alternate;
+      -webkit-animation:fwari ease-in-out 2s infinite alternate;
+      -moz-animation:fwari ease-in-out 2s infinite alternate;
 
       &__2{
       position: relative;
@@ -61,7 +64,7 @@
     }
     
     /* 大きい丸 */
-    &__1::before{
+    &__fwari::before{
       content: '';
       position: absolute;
       display: block;
@@ -73,7 +76,7 @@
       height: 22px;
     }
     /* 小さい丸 */
-    &__1::after{
+    &__fwari::after{
       content: '';
       position: absolute;
       display: block;
@@ -220,5 +223,19 @@
   @keyframes drift {
     from { transform: rotate(0deg); }
     from { transform: rotate(360deg); }
+  }
+
+  @keyframes fwari{
+    0%   { transform:translate(0%, 0%); }
+    100% { transform:translate(0%, -15px); }
+  }
+  @-webkit-keyframes fwari{
+      0%   { -webkit-transform:translate(0%, 0%); }
+      100% { -webkit-transform:translate(0%, -15px); }
+  }
+
+  @-moz-keyframes fwari{
+      0%   { -moz-transform:translate(0%, 0%); }
+      100% { -moz-transform:translate(0%, -15px); }
   }
 }

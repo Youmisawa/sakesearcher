@@ -1,4 +1,13 @@
-.Content {
+.Contents {
+  height: 100vh;
+  width: 100vw;
+  max-width: 660px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-family: 'Playfair Display', serif;
+  
   &__btn {
     margin: 18px;
     &__1, a {

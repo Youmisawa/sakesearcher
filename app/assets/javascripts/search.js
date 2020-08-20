@@ -55,7 +55,7 @@ $(function () {
         });
       }
       else {
-        appendErrMsgToHTML("＊一致する投稿がありません＊");
+        appendErrMsgToHTML("＊投稿がありません＊");
       }
     })
     .fail(function () {
