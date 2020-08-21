@@ -66,8 +66,6 @@
 
     &__more{
       margin-top: 577px;
-      display: flex;
-      justify-content: space-between;
       
       &__list{
         background-color: #bce2e8;
@@ -82,6 +80,26 @@
         background-color: #00a3af	;
         transition: all .35s ease-in-out .35s;
       }
+
+      &__list1{
+        background-color: #8bffe6;
+        border-radius: 10px;
+        padding: 7px;
+        margin-right: 8px;
+        width: 50px;
+        text-align: center;
+      }
+
+
+      &__list2{
+        background-color: #2ba2f1;
+        border-radius: 10px;
+        padding: 7px;
+        margin-right: 8px;
+        width: 50px;
+        text-align: center;
+      }
+
 
     }
 
@@ -121,3 +139,79 @@ span, Content__post{
   text-shadow: 0 0 2px #000, 0 0 1px #000, 0 0 1px #000;
 }
 
+.Contentuser{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-family: 'Playfair Display', serif;
+  display: table;
+  
+  &__name{
+    font-size: 22px;
+    text-align: center;
+    margin-top: 30px;
+    color: #00a3af;
+  }
+
+  &__post{
+    object-fit: scale-down;
+    padding: 30px;
+    margin: 30px 30px 80px 20px;
+    position: relative;
+    height: 600px;
+    width: 610px;
+    color: #2c4f54;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px rgba(0,230,0,0), 0 -30px 50px -20px #B0C4DE inset;
+
+    &__more{
+      margin-top: 577px;
+      
+      &__list{
+        background-color: #bce2e8;
+        border-radius: 10px;
+        padding: 7px;
+        margin-right: 8px;
+        width: 50px;
+        text-align: center;
+      }
+
+      &__list:hover {
+        background-color: #00a3af	;
+        transition: all .35s ease-in-out .35s;
+      }
+
+      &__list1{
+        background-color: #8bffe6;
+        border-radius: 10px;
+        padding: 7px;
+        margin-right: 8px;
+        width: 50px;
+        text-align: center;
+      }
+
+
+      &__list2{
+        background-color: #2ba2f1;
+        border-radius: 10px;
+        padding: 7px;
+        margin-right: 8px;
+        width: 50px;
+        text-align: center;
+      }
+
+
+    }
+
+    &__tags{
+      color: #84b9cb;
+      margin-top: 5px;
+    }
+    &__more, a{
+      color: whitesmoke;
+    }
+  }
+}

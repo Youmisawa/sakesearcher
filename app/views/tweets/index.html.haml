@@ -3,7 +3,7 @@
     .Search__box__fwari
       お酒の名前やタグで気になるものを検索してみましょう！
       .Search__box__fwari__2
-        甘口や辛口、酸味強めや酸味弱めなど、タグ検索してお酒を探してみましょう！ログインするとコメントや投稿も可能に！
+        甘口や辛口、酸味強めや酸味弱めなど、タグ検索してお酒を探してみましょう！ログインするとコメントや投稿が可能に！
         %br 画像下の「詳細」を押すとそのお酒の詳細ページにいけます！
     .Search__box__3
       　\ click me!! /
@@ -44,9 +44,6 @@
         - if user_signed_in? && current_user.id == tweet.user_id
           = link_to '削除', tweet_path(tweet.id), class: 'Content__post__more__list', method: :delete
           = link_to '編集', edit_tweet_path(tweet.id), class: 'Content__post__more__list',method: :get
-        .Content__post__more__like
-          %div{id: "like-btn-#{tweet.id}"}
-            = render 'likes/like', tweet: tweet
       .Content__post__tags
         Tag；
         - tweet.tags.each do |tag|
