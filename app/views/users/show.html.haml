@@ -8,4 +8,9 @@
         = link_to '詳細', tweet_path(tweet.id), class: 'Contentuser__post__more__list',method: :get
         = link_to '削除', tweet_path(tweet.id), class: 'Contentuser__post__more__list', method: :delete
         = link_to '編集', edit_tweet_path(tweet.id), class: 'Contentuser__post__more__list',method: :get
+      .Content__post__tags
+        Tag；
+        - tweet.tags.each do |tag|
+          = tag.name
+          %print ,
       %p= tweet.tweetname
