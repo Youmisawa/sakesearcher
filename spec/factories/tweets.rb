@@ -5,6 +5,7 @@ FactoryBot.define do
     tweetname {Faker::Beer.name}
     alc {Faker::Beer.alcohol}
     url {Faker::Alphanumeric.alpha(number: 10)}
+    created_at { Faker::Time.between(from: DateTime.now - 2, to: DateTime.now) }
     user
   end
 end
