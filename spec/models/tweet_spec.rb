@@ -16,6 +16,11 @@ RSpec.describe Tweet, type: :model do
         tweet.valid?
         expect(tweet.errors[:text]).to include("can't be blank")
       end
+      it 'is invalid without user_id' do
+        tweet = build(:tweet, user_id: nil)
+        tweet.valid?
+        expect(tweet.errors[:user]).to include("must exist")
+      end
     end
   end
 end
